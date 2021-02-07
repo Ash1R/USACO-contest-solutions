@@ -1,0 +1,20 @@
+def main2():
+    n = int(input().strip())
+    cows = [int(i) for i in input().strip().split()]
+    barns = [int(i) for i in input().strip().split()]
+    barns.sort()
+    cows.sort()
+    able = []
+    for i in range(len(cows)):
+        temp = []
+        for j in range(len(barns)):
+            if cows[i] <= barns[j]:
+                temp.append(j)
+        able.append(temp)
+    diff = 0
+    ans = 1
+    for i in able[::-1]:
+        ans = ans * (len(i) - diff)
+        diff += 1
+    print(ans)
+main2()
